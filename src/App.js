@@ -1,8 +1,9 @@
+import React, {useState} from "react";
+
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-const App = () => {
-  const expenses = [
+  const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -24,9 +25,18 @@ const App = () => {
     },
   ];
 
+const App = () => {
+
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
   const addExpenseHandler = expense => {
-    console.log("in App.js");
+    // setExpenses([expense, ...expenses]);
+    // ici ce n'est pas correct car on doit updater un état en fonction de son éat précédent. Il faut alors passer en argument à la fonction setExpense() une fonction () qui retourne le résultat voulu
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
     console.log(expense);
+    console.log(expenses);
   }
 
   return (
