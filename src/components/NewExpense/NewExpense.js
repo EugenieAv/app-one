@@ -26,7 +26,7 @@ const NewExpense = (props) => {
             {formState === 'open' && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} changeState={changeStateHandler} />}
  
             {/* <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} /> */}
-        </div>
+          </div>
     )
 }
 export default NewExpense;
